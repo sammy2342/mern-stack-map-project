@@ -1,6 +1,7 @@
 import { client } from '../../libary/client'
 import { useEffect, useState } from "react"
 import { urlFor } from '../../libary/client'
+import './Banner.css'
 
 export default function Banner() { 
 
@@ -28,10 +29,10 @@ export default function Banner() {
             <div className='banner-container-item'>
                 {bannerInList.map((item) => (
                     <div key={item._id}>
-                        <div>{item.buttonText}</div>
-                        <div>{item.desc}</div>
+                        <div className='button-text-banner'>{item.buttonText}</div>
+                        <div className='description-banner-text'>{item.desc}</div>
                         {/* <div><img src={item.image.asset} alt="" /></div> */}
-                        <div>{item.largeText1}</div>
+                        <div className='large-text-1-banner'>{item.largeText1}</div>
                         <div><img src={urlFor(item.image)} alt="" /></div>
                     </div>
                 ))}
