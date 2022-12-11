@@ -1,0 +1,19 @@
+.nav-bar { 
+    background: rgb(4, 4, 61);
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-links-text { 
+    font-size: 20px;
+    color: rgb(245, 198, 140);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar-links-text-1 { 
+    color: crimson;
+}

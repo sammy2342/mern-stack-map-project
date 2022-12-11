@@ -37,3 +37,11 @@
     right: 190px;
     bottom: 100px;
 }
+
+.small-text-banner-text { 
+    font-size: 30px;
+    position: relative;
+    text-align: left;
+    left: 46px;
+    top: 80px;
+}
