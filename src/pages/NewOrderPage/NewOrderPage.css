@@ -1,0 +1,13 @@
+.product-headers-title { 
+    font-size: 27px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.title-header-p-tag { 
+    padding: 0px;
+    color: rgba(95, 95, 95, 0.5);
+}
