@@ -1,5 +1,6 @@
 import { client } from '../../libary/client'
 import { useEffect, useState } from "react"
+import { urlFor } from '../../libary/client'
 
 export default function Banner() { 
 
@@ -29,7 +30,9 @@ export default function Banner() {
                     <div key={item._id}>
                         <div>{item.buttonText}</div>
                         <div>{item.desc}</div>
-                        <div><img src={item.image.asset} alt="" /></div>
+                        {/* <div><img src={item.image.asset} alt="" /></div> */}
+                        <div>{item.largeText1}</div>
+                        <div><img src={urlFor(item.image)} alt="" /></div>
                     </div>
                 ))}
             </div>

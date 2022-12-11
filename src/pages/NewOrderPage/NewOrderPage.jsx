@@ -2,6 +2,7 @@ import './NewOrderPage.css'
 import { client } from '../../libary/client'
 import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner/Banner'
+import { urlFor } from '../../libary/client'
 import axios from 'axios'
 
 
@@ -41,7 +42,14 @@ export default function NewOrderPage() {
                         <div key={item._id}>
                             <div>{item.name}</div>
                             <div>{item.price}</div>
-                            <div><img src={item.image.asset} alt="" /></div>
+                            <div>
+                                {/* {item.image && (
+                                    <img 
+                                    src={urlFor(item.image).width(200).url()}
+                                    alt="sdc" 
+                                    />
+                                )} */}
+                            </div>
                         </div>
                     ))}
                 </div>
