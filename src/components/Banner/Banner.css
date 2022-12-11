@@ -45,3 +45,21 @@
     left: 46px;
     top: 80px;
 }
+
+.button-text-banner { 
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: rgb(222, 71, 68);
+    width: 120px;
+    vertical-align: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    left: 40px;
+}
+
+.button-text-hidder {
+    visibility: hidden;
+}
