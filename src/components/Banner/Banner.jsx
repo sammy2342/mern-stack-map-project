@@ -35,6 +35,8 @@ export default function Banner() {
                         <div className='large-text-1-banner'>{item.largeText1}</div>
                         <div><img src={urlFor(item.image)} alt="" className='image-banner-page'/></div>
                         <div className='button-text-banner'>{item.buttonText}</div>
+                        <div className='description-banner-item-text'><h5>Description</h5></div>
+                        <div className='description-banner-item-api'>{item.desc}</div>
                     </div>
                 ))}
             </div>

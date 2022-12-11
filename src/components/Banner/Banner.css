@@ -63,3 +63,17 @@
 .button-text-hidder {
     visibility: hidden;
 }
+
+.description-banner-item-text { 
+    position: relative;
+    left: 470px;
+    bottom: 23px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.description-banner-item-api { 
+    position: relative;
+    left: 400px;
+    bottom: 30px;
+    color: rgba(115, 112, 112, 0.5);
+}
