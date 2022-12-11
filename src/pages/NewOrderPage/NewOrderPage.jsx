@@ -34,7 +34,10 @@ export default function NewOrderPage() {
 
                 <div className='product-container-item'>
                     {productsInList.map((item, idx) => (
-                        <div key={idx}>{item.name}</div>
+                        <div key={idx}>
+                            <div>{item.name}</div>
+                            <div>{item.price}</div>
+                        </div>
                     ))}
                 </div>
 
