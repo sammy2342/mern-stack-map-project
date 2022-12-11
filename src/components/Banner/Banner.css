@@ -2,5 +2,38 @@
     background: rgb(232, 232, 232);
     width: 102%;
     margin-right: auto;
+    height: 70vh;
 }
 
+.mid-text-banner-text { 
+    font-size: 100px;
+    font-weight: 700;
+    font-family: sans-serif;
+    position: relative;
+    /* margin-right: 500px; */
+    top: 70px;
+    margin-left: 20px;
+    width: 60%;
+    right: 100px;
+    left: 2px;
+    margin-right: auto;
+}
+
+.large-text-1-banner {
+    font-size: 200px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    position: relative;
+    margin-right: 700px;
+    padding-top: 25px;
+    left: 20px;
+}
+
+.image-banner-page {
+    z-index: 1;
+    position: absolute;
+    top: 28px;
+    right: 190px;
+    bottom: 100px;
+}
