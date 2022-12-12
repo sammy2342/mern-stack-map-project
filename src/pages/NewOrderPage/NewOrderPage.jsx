@@ -2,6 +2,7 @@ import './NewOrderPage.css'
 import { client } from '../../libary/client'
 import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner/Banner'
+import Product from '../../components/Product/Product'
 import { urlFor } from '../../libary/client'
 import axios from 'axios'
 
@@ -31,13 +32,13 @@ export default function NewOrderPage() {
             
             {productsInList ? <> 
                 <Banner />
-                <h1>NewOrderPage</h1> 
                 <div className="product-headers-title">
-                    <h2>Best Selling Products</h2>
+                    <h2 className='produce-header-h2-selling-products'>Best Selling Products</h2>
                     <p className='title-header-p-tag'>Speakers of many viriations</p>
+                    <Product productsInList={productsInList}/>
                 </div>
 
-                <div className='product-container-item'>
+                {/* <div className='product-container-item'>
                     {productsInList.map((item) => (
                         <div key={item._id}>
                             <div>{item.name}</div>
@@ -49,10 +50,10 @@ export default function NewOrderPage() {
                                     alt="sdc" 
                                     />
                                 )} */}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                            {/* </div>
+                        </div> */}
+                    {/* ))} */}
+                {/* </div> */} */
 
                 Footer
             </>: null}

@@ -10,4 +10,18 @@
 .title-header-p-tag { 
     padding: 0px;
     color: rgba(95, 95, 95, 0.5);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.product-headers-title { 
+    color: rgb(56, 63, 129);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.produce-header-h2-selling-products { 
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
