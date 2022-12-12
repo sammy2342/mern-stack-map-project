@@ -10,7 +10,7 @@ export default function Product({ productsInList }) {
         <div className='products-container'>
             {productsInList.map((item) => (
                 <div>
-                    <Link href={`/product/${item.slug.current}`}>
+                    <Link to={`/product/${item.slug.current}`}>
                     <div className='product-card'>
                         <img src={urlFor(item.image && item.image[0])}
                         alt=""
