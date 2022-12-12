@@ -3,6 +3,7 @@ import { client } from '../../libary/client'
 import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner/Banner'
 import Product from '../../components/Product/Product'
+import Footer from '../../components/Footer/Footer'
 import { urlFor } from '../../libary/client'
 import axios from 'axios'
 
@@ -53,9 +54,9 @@ export default function NewOrderPage() {
                             {/* </div>
                         </div> */}
                     {/* ))} */}
-                {/* </div> */} */
+                {/* </div> */} 
 
-                Footer
+                <Footer />
             </>: null}
         </>
     )
