@@ -1,15 +1,19 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { urlFor } from '../../libary/client'
 import './Product.css'
 
 
+
 export default function Product({ productsInList }) {
 
-    console.log(productsInList, 'this is in the product commpent')
+    
+    // console.log(productId, 'productId')
+
+    // console.log(productsInList, 'this is in the product commpent')
     return ( 
         <div className='products-container'>
-            {productsInList.map((item) => (
-                <div>
+            {productsInList.map((item, idx) => (
+                <div key={idx}>
                     <Link to={`/product/${item.slug.current}`}>
                     <div className='product-card'>
                         <img src={urlFor(item.image && item.image[0])}

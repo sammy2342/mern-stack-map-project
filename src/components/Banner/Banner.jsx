@@ -12,9 +12,9 @@ export default function Banner() {
             try {
                 const query = '*[_type == "banner"]'
                 const banners = await client.fetch(query)
-                console.log(banners)
+                // console.log(banners)
                 setBannerInList(banners)
-                console.log(bannerInList, 'this is for the new banner')
+                // console.log(bannerInList, 'this is for the new banner')
             } catch(err) {
                 console.log(err)
             }

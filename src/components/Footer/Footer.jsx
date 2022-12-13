@@ -14,9 +14,9 @@ export default function Footer() {
             try {
                 const query = '*[_type == "banner"]'
                 const footers = await client.fetch(query)
-                console.log(footers)
+                // console.log(footers)
                 setFooter(footers)
-                console.log(footer[0].discount, 'fooooooteerrrrrr')
+                // console.log(footer[0].discount, 'fooooooteerrrrrr')
             } catch(err) {
                 console.log(err)
             }

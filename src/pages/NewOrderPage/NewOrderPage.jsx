@@ -17,9 +17,9 @@ export default function NewOrderPage() {
             try {
                 const query = '*[_type == "product"]'
                 const products = await client.fetch(query)
-                console.log(products, 'this is the prodct console.log')
+                // console.log(products, 'this is the prodct console.log')
                 setProductsInList(products)
-                console.log(productsInList, 'this is for the new product')
+                // console.log(productsInList, 'this is for the new product')
             } catch(err) {
                 console.log(err)
             }
@@ -39,22 +39,6 @@ export default function NewOrderPage() {
                     <Product productsInList={productsInList}/>
                 </div>
 
-                {/* <div className='product-container-item'>
-                    {productsInList.map((item) => (
-                        <div key={item._id}>
-                            <div>{item.name}</div>
-                            <div>{item.price}</div>
-                            <div>
-                                {/* {item.image && (
-                                    <img 
-                                    src={urlFor(item.image).width(200).url()}
-                                    alt="sdc" 
-                                    />
-                                )} */}
-                            {/* </div>
-                        </div> */}
-                    {/* ))} */}
-                {/* </div> */} 
 
                 <Footer />
             </>: null}
