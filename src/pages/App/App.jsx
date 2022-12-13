@@ -8,8 +8,11 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import ProductDetails from '../ProductDetails/ProductDetails';
 
+
 export default function App() {
   const [user, setUser] = useState(getUser())
+  const [productsInList, setProductsInList] = useState([])
+
 
   return (
     <main className="App">
@@ -17,9 +20,9 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/orders/new" element={<NewOrderPage productsInList={productsInList} setProductsInList={setProductsInList} />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
-            <Route path='/product/:id' element={<ProductDetails />} />
+            <Route path='/product/:id' element={<ProductDetails productsInList={productsInList} setProductsInList={setProductsInList} />} />
           </Routes>
         </>
         :

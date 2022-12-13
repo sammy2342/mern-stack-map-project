@@ -1,4 +1,6 @@
 import * as userService from '../../utilities/users-service'
+import './All.css'
+import './AllGlobal.css'
 
 export default function OrderHistoryPage() {
 

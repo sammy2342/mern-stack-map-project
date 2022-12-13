@@ -1,0 +1,33 @@
+.product-detail-desc .price{
+    font-weight: 700 ;
+    font-size: 26px;
+    margin-top: 30px;
+    color:#f02d34;
+  }
+  .price .old-price, .product-price .old-price, .price .old-price{
+    color: gray;
+    text-decoration: line-through;
+  }
+  .product-detail-desc .quantity{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px ;
+    align-items: center;
+  }
+  .product-detail-desc .buttons{
+    display: flex;
+    gap: 30px;
+  }
+
+.reviews p{
+    color: #324d67;
+    margin-top: 0px;
+}
+
+.reviews{
+    color: #f02d34;
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
