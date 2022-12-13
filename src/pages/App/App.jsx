@@ -12,6 +12,7 @@ import ProductDetails from '../ProductDetails/ProductDetails';
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [productsInList, setProductsInList] = useState([])
+  const [productRerender, setProductRerender] = useState([])
 
 
   return (
@@ -20,7 +21,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/orders/new" element={<NewOrderPage productsInList={productsInList} setProductsInList={setProductsInList} />} />
+            <Route path="/orders/new" element={<NewOrderPage productsInList={productsInList} setProductsInList={setProductsInList} productRerender={productRerender} setProductRerender={setProductRerender} />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path='/product/:id' element={<ProductDetails productsInList={productsInList} setProductsInList={setProductsInList} />} />
           </Routes>

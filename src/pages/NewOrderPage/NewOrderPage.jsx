@@ -8,7 +8,7 @@ import { urlFor } from '../../libary/client'
 import axios from 'axios'
 
 
-export default function NewOrderPage({ productsInList, setProductsInList}) {
+export default function NewOrderPage({ productsInList, setProductsInList, setProductRerender, productRerender}) {
 
     // const [productsInList, setProductsInList] = useState([])
 
@@ -19,7 +19,11 @@ export default function NewOrderPage({ productsInList, setProductsInList}) {
                 const products = await client.fetch(query)
                 // console.log(products, 'this is the prodct console.log')
                 setProductsInList(products)
-                console.log(productsInList, 'this is for the new product')
+                if(productsInList.length) {
+                    console.log(productsInList, 'this is for the new product')
+                } else {
+                    console.log('still nothing inside')
+                }
             } catch(err) {
                 console.log(err)
             }
@@ -28,6 +32,10 @@ export default function NewOrderPage({ productsInList, setProductsInList}) {
         getImage()
     }, [])
 
+    function render() { 
+        setProductRerender(productsInList)
+    }
+    render()
     return (
         <>
             
