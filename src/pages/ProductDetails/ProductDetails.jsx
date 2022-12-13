@@ -11,11 +11,7 @@ export default function ProductDetails() {
     useEffect( function() { 
         async function getProductDetails() { 
             try {
-                const query = `*[_type == "product"] {
-                    slug {
-                        current
-                    }
-                }`
+                const query = `*[_type == "product" && slug.current == '${id}']` 
                 const product = await client.fetch(query)
                 
                 console.log(product, 'thisdetailspagener')
