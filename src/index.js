@@ -11,6 +11,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <StateContext>
+        <Toaster />
         <App />
       </StateContext>
     </Router>

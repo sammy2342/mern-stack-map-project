@@ -7,6 +7,7 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage'
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import ProductDetails from '../ProductDetails/ProductDetails';
+import { Toaster } from 'react-hot-toast';
 
 
 export default function App() {
@@ -23,7 +24,7 @@ export default function App() {
           <Routes>
             <Route path="/orders/new" element={<NewOrderPage productsInList={productsInList} setProductsInList={setProductsInList} productRerender={productRerender} setProductRerender={setProductRerender} />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
-            <Route path='/product/:id' element={<ProductDetails productsInList={productsInList} setProductsInList={setProductsInList} />} />
+            <Route path='/product/:id' element={<ProductDetails productsInList={productsInList} setProductsInList={setProductsInList} /> } />
           </Routes>
         </>
         :
