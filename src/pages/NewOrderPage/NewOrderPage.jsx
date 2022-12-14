@@ -20,9 +20,9 @@ export default function NewOrderPage({ productsInList, setProductsInList, setPro
                 // console.log(products, 'this is the prodct console.log')
                 setProductsInList(products)
                 if(productsInList.length) {
-                    console.log(productsInList, 'this is for the new product')
+                    // console.log(productsInList, 'this is for the new product')
                 } else {
-                    console.log('still nothing inside')
+                    // console.log('still nothing inside')
                 }
             } catch(err) {
                 console.log(err)

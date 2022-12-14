@@ -5,12 +5,13 @@ import './ProductDetails.css'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import Product from '../../components/Product/Product'
 import { useStateContext } from '../../context/StateContext'
+import { Link, useNavigate} from 'react-router-dom'
 
 export default function ProductDetails({productsInList}) { 
 
     // console.log(productsInList, 'this is for the product')
     const { id } = useParams()
-    console.log(id, 'this is for the id')
+    // console.log(id, 'this is for the id')
     const [details, setDetails] = useState([])
     const [allProduct, setAllProduct] = useState([])
     const [index, setIndex] = useState(0)
@@ -30,23 +31,25 @@ export default function ProductDetails({productsInList}) {
         getProductDetails()
     }, [])
 
+    console.log(allProduct, 'this is for the all')
+
     useEffect ( function () { 
         async function allProducts() { 
             const query = '*[_type == "product"]'
             const products = await client.fetch(query)
-            console.log(products, 'this is for the product inside the detail page line 34')
+            // console.log(products, 'this is for the product inside the detail page line 34')
             setAllProduct(products)
         }
         allProducts()
     }, [details])
-    console.log(allProduct, 'this is for all product')
-
+    // console.log(allProduct, 'this is for all product')
+    // console.log(details._id, 'this is for the details')
     return (
 
         <div>
             {allProduct.length ? <>
             {details.map((item, idx) => (
-                <div className='product-detail-container' key={idx}>
+                <div className='product-detail-container' key={item._id}>
                     
                     <div>
                         <div className='image-container'>
@@ -111,12 +114,26 @@ export default function ProductDetails({productsInList}) {
             ))}
             
             <h2>You May also Like</h2>
+            
                 <div className='marquee'>
-                    {/* <div className='maylike-products-container track'>
-                        {allProduct.map((item) => (
-                            <Product key={item._id} product={item}/>
+                    <div className='maylike-products-container track'>
+                        {allProduct?.map((item) => (
+                            <>
+                                <Link to={`/product/${item.slug.current}`}>
+                                    <div className='product-card'>
+                                        <img src={urlFor(item.image && item.image[0])}
+                                        alt=""
+                                        height={250}
+                                        width={250}
+                                        className="product-image"
+                                        />
+                                        <p className='produce-name'>{item.name}</p>
+                                        <p className='product-price'>${item.price}</p>
+                                    </div>  
+                                </Link>
+                            </>
                         ))}
-                    </div>  */}
+                    </div> 
                     
                 </div>
             </> : null}

@@ -5,11 +5,20 @@ import toast from 'react-hot-toast'
 import { useStateContext } from '../../context/StateContext'
 import { urlFor } from '../../libary/client'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export default function Cart() {
 
     const cartRef = useRef()
     const { totalPrice, totalQuantites, cartItems, setShowCart } = useStateContext()
+
+    useEffect( function() { 
+        function getCart() { 
+            console.log(cartItems)
+        }
+        getCart()
+    }, [])
+
 
     return ( 
         <div className='cart-wrapper' ref={cartRef}>
@@ -31,6 +40,16 @@ export default function Cart() {
                         </Link>
                     </div>
                 )}
+                {cartItems ? <>
+                    <div className='product-container'>
+                        {cartItems.length >= 1 && cartItems.map((item, idx) => console.log(cartItems) || ( 
+                            <div className='product' key={idx * 10003330}>
+                                // till now the fix's i found was putting item
+                                <img src={urlFor(item[0].image[0])} alt=""  className='cart-product-image'/>
+                            </div>
+                        ))}
+                    </div>
+                </>: null}
             </div>
         </div>
     )
