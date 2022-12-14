@@ -61,7 +61,7 @@ export default function ProductDetails({productsInList}) {
                         </div>
                     </div>
                     <div className="product-detail-desc">
-                        <h1>{item.name}</h1>
+                        <h1 className='details-h-4'>{item.name}</h1>
                         <div className="reviews">
                             <div>
                                 <AiFillStar />
@@ -74,9 +74,9 @@ export default function ProductDetails({productsInList}) {
                                 (20)
                             </p>
                         </div>
-                        <h4>Details: </h4>
-                        <p>{item.details}</p>
-                        <p className="price">${item.price}</p>
+                        <h4 className='details-h-4'>Details: </h4>
+                        <p className='details-h-4'>{item.details}</p>
+                        <p className="price details-h-4">${item.price}</p>
                         <div className="quantity">
                             <h3>Quantity:</h3>
                             <p className="quantity-desc">
@@ -91,15 +91,17 @@ export default function ProductDetails({productsInList}) {
                                 </span>
                             </p>
                         </div>
-                        <div className='buttons'>
-                            <button type='button' className='add-to-cart' >
-                                Add To Cart
-                            </button>
-                        </div>
-                        <div className='buttons'>
-                            <button type='button' className='buy-now' >
-                                Buy Now
-                            </button>
+                        <div className='buttons-for-add-cart-buy-now'>
+                            <div className='buttons'>
+                                <button type='button' className='add-to-cart' >
+                                    Add To Cart
+                                </button>
+                            </div>
+                            <div className='buttons'>
+                                <button type='button' className='buy-now' >
+                                    Buy Now
+                                </button>
+                            </div>
                         </div>
                 </div>
                 

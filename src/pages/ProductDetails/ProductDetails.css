@@ -31,3 +31,25 @@
     gap: 5px;
     align-items: center;
 }
+
+.details-h-4 { 
+  text-align: left;
+}
+
+.buttons-for-add-cart-buy-now { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) { 
+
+  .buttons-for-add-cart-buy-now { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+  }
+
+}
