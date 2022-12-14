@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import './ProductDetails.css'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import Product from '../../components/Product/Product'
+import { useStateContext } from '../../context/StateContext'
 
 export default function ProductDetails({productsInList}) { 
 
@@ -13,6 +14,7 @@ export default function ProductDetails({productsInList}) {
     const [details, setDetails] = useState([])
     const [allProduct, setAllProduct] = useState([])
     const [index, setIndex] = useState(0)
+    const { decQty, incQty, qty } = useStateContext()
 
     useEffect( function() { 
         async function getProductDetails() { 
@@ -80,13 +82,13 @@ export default function ProductDetails({productsInList}) {
                         <div className="quantity">
                             <h3>Quantity:</h3>
                             <p className="quantity-desc">
-                                <span className='minus' >
+                                <span className='minus' onClick={decQty}>
                                     <AiOutlineMinus />
                                 </span>
                                 <span className='num' >
-                                    0
+                                    {qty}
                                 </span>
-                                <span className='plus' >
+                                <span className='plus'onClick={incQty} >
                                     <AiOutlinePlus />
                                 </span>
                             </p>
