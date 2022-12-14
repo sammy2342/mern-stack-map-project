@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
 import './NavBar.css'
+import Cart from '../Cart/Cart'
+import { useStateContext } from '../../context/StateContext'
+import { AiOutlineShopping, AiOutlineShoppingCart } from 'react-icons/ai'
 
 export default function NavBar({ user, setUser }) {
+
+    const { showCart, setShowCart, totalQuantites } = useStateContext()
+
+    console.log(totalQuantites, 'this is for toal')
 
     function handleLogOut() {
         userService.logOut()
@@ -20,6 +27,11 @@ export default function NavBar({ user, setUser }) {
             <div className='navbar-links-text-1'>Welcome, {user.name}</div>
             &nbsp; | &nbsp;
             <Link to="" onClick={handleLogOut} className='navbar-links-text'>Log Out</Link>
+            <button type='button' className='cart-icon' onClick={() => setShowCart(true)}>
+                <AiOutlineShoppingCart /> 
+                <span className='cart-item-qty'>{totalQuantites}</span>
+            </button>
+            {showCart && <Cart />}
         </nav>
     )
 }

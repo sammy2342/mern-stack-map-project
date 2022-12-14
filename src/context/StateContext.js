@@ -7,7 +7,7 @@ export const StateContext = ({ children }) => {
     const [showCart, setShowCart] = useState(false)
     const [cartItems, setCartItems] = useState([])
     const [totalPrice, setTotalPrice] = useState()
-    const [totalQuantites, setTotalQuantities] = useState()
+    const [totalQuantites, setTotalQuantities] = useState(0)
     const [qty, setQty] = useState(1)
 
     function incQty() { 
@@ -57,7 +57,8 @@ return (
                 qty,
                 incQty,
                 decQty,
-                onAdd
+                onAdd, 
+                setShowCart
             }}
             >
             {children}

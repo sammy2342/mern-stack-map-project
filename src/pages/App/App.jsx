@@ -7,7 +7,7 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage'
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import ProductDetails from '../ProductDetails/ProductDetails';
-import { Toaster } from 'react-hot-toast';
+
 
 
 export default function App() {
