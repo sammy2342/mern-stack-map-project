@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 export default function Cart() {
 
     const cartRef = useRef()
-    const { totalPrice, totalQuantites, cartItems, setShowCart } = useStateContext()
+    const { totalPrice, totalQuantites, cartItems, setShowCart, toggleCartItemQuanitity } = useStateContext()
 
     useEffect( function() { 
         function getCart() { 
@@ -53,13 +53,13 @@ export default function Cart() {
                                     <div className='flex botton'>
                                         <div>
                                             <p className="quantity-desc">
-                                                <span className='minus' onClick=''>
+                                                <span className='minus' onClick={ () => toggleCartItemQuanitity(item._id, 'dec') }>
                                                     <AiOutlineMinus />
                                                 </span>
-                                                <span className='num' >
-                                                    0
+                                                <span className='num' onClick=''>
+                                                    {item.quantity}
                                                 </span>
-                                                <span className='plus'onClick='' >
+                                                <span className='plus'onClick={ () => toggleCartItemQuanitity(item._id, 'inc') } >
                                                     <AiOutlinePlus />
                                                 </span>
                                             </p>
