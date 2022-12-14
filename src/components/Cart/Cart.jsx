@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import './Cart.css'
-import { AiOutlineMinus, AiOutLinePlus, AiOutlineLeft, AiOutlineShopping, TiDeleteOutLine, AiOutlineDelete, AiFillCarryOut, AiOutlineDoubleRight } from 'react-icons/ai'
+import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping, TiDeleteOutline, AiOutlineDelete, AiFillCarryOut, AiOutlineDoubleRight } from 'react-icons/ai'
 import toast from 'react-hot-toast'
 import { useStateContext } from '../../context/StateContext'
 import { urlFor } from '../../libary/client'
@@ -45,10 +45,41 @@ export default function Cart() {
                         {cartItems.length >= 1 && cartItems.map((item, idx) => console.log(cartItems) || ( 
                             <div className='product' key={idx * 10003330}>
                                 <img src={urlFor(item[0].image[0])} alt=""  className='cart-product-image'/>
-                                
+                                <div className='item-desc'>
+                                    <div className='flex top'>
+                                        <h5>{item[0].name}</h5>
+                                        <h4>${item[0].price}</h4>
+                                    </div>
+                                    <div className='flex botton'>
+                                        <div>
+                                            <p className="quantity-desc">
+                                                <span className='minus' onClick=''>
+                                                    <AiOutlineMinus />
+                                                </span>
+                                                <span className='num' >
+                                                    0
+                                                </span>
+                                                <span className='plus'onClick='' >
+                                                    <AiOutlinePlus />
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <button type='button' className='remove-item' onClick=''>
+                                            <AiOutlineDelete />
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
+                    {cartItems.length >= 1 && (
+                        <div className='cart-bottom'>
+                            <div className='total'>
+                                <h3>Subtotal:</h3>
+                                <h3>${totalPrice}</h3>
+                            </div>
+                        </div>
+                    )}
                 </>: null}
             </div>
         </div>

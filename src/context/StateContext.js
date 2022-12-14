@@ -6,10 +6,12 @@ const Context = createContext()
 export const StateContext = ({ children }) => {
     const [showCart, setShowCart] = useState(false)
     const [cartItems, setCartItems] = useState([])
-    const [totalPrice, setTotalPrice] = useState()
+    const [totalPrice, setTotalPrice] = useState(0)
     const [totalQuantites, setTotalQuantities] = useState(0)
     const [qty, setQty] = useState(1)
 
+
+    console.log(totalPrice, 'this is for total price')
     function incQty() { 
         setQty((prevQty) => prevQty + 1)
     }
@@ -28,7 +30,7 @@ export const StateContext = ({ children }) => {
         console.log(product[0].name, quantity, 'stateconext page')
         const checkProductInCart = cartItems.find((item) => console.log(item, 'this is the item') || item._id === product[0]._id)
 
-        setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+        setTotalPrice((prevTotalPrice) => prevTotalPrice + product[0].price * quantity)
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
         if(checkProductInCart) { 
             
