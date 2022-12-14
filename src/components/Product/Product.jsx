@@ -9,7 +9,7 @@ export default function Product({ productsInList }) {
     
     // console.log(productId, 'productId')
 
-    console.log(productsInList, 'this is in the product commpent')
+    // console.log(productsInList, 'this is in the product commpent')
     return ( 
         <div className='products-container'>
             {productsInList.map((item, idx) => (

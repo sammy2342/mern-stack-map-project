@@ -31,7 +31,7 @@ export default function ProductDetails({productsInList}) {
         getProductDetails()
     }, [])
 
-    console.log(allProduct, 'this is for the all')
+    // console.log(allProduct, 'this is for the all')
 
     useEffect ( function () { 
         async function allProducts() { 

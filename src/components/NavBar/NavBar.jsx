@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
 
     const { showCart, setShowCart, totalQuantites } = useStateContext()
 
-    console.log(totalQuantites, 'this is for toal')
+    // console.log(totalQuantites, 'this is for toal')
 
     function handleLogOut() {
         userService.logOut()

@@ -44,8 +44,8 @@ export default function Cart() {
                     <div className='product-container'>
                         {cartItems.length >= 1 && cartItems.map((item, idx) => console.log(cartItems) || ( 
                             <div className='product' key={idx * 10003330}>
-                                // till now the fix's i found was putting item
                                 <img src={urlFor(item[0].image[0])} alt=""  className='cart-product-image'/>
+                                
                             </div>
                         ))}
                     </div>

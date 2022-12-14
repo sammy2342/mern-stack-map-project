@@ -25,26 +25,31 @@ export const StateContext = ({ children }) => {
     }
 
     function onAdd(product, quantity) {
-        const checkProductInCart = cartItems.find((item) => item._id === product._id)
+        console.log(product[0].name, quantity, 'stateconext page')
+        const checkProductInCart = cartItems.find((item) => console.log(item, 'this is the item') || item._id === product[0]._id)
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
         if(checkProductInCart) { 
-
+            
             const updatedCartItems = cartItems.map((cartProduct) => { 
-                if(cartProduct._id === product._id) return { 
+                console.log(cartProduct[0]._id, 'this is for the cartProduct id', product[0]._id, 'and this is for the product id')
+                console.log(cartProduct.quantity, quantity,'this is for the cart product line 37 state context')
+                console.log('stateContext line 38 this is for the product', product)
+                if(cartProduct[0]._id == product[0]._id) return { 
                     ...cartProduct, 
                     quantity: cartProduct.quantity + quantity
                 }
             })
-
+            console.log(updatedCartItems, 'this is for the updated cart')
             setCartItems(updatedCartItems)
         } else {
             product.quantity = quantity
-            
+            console.log(product.quantity, cartItems, product, 'this is in stateconext line 46')
             setCartItems([...cartItems, { ...product }])
         }
-        toast.success(`${qty} ${product.name} added to the cart.`)
+        // console.log(product)
+        toast.success(`${qty} ${product[0].name} added to the cart.`)
     }
 
 return ( 
