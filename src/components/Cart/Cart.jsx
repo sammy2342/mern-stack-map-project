@@ -12,12 +12,12 @@ export default function Cart() {
     const cartRef = useRef()
     const { totalPrice, totalQuantites, cartItems, setShowCart, toggleCartItemQuanitity } = useStateContext()
 
-    useEffect( function() { 
-        function getCart() { 
-            console.log(cartItems)
-        }
-        getCart()
-    }, [])
+    console.log(cartItems, 'this is line 17 cart')
+    // useEffect( function() { 
+    //     function getCart() { 
+    //     }
+    //     getCart()
+    // }, [])
 
 
     return ( 
@@ -42,7 +42,7 @@ export default function Cart() {
                 )}
                 {cartItems ? <>
                     <div className='product-container'>
-                        {cartItems.length >= 1 && cartItems.map((item, idx) => console.log(cartItems) || ( 
+                        {cartItems.length >= 1 && cartItems.map((item, idx) => console.log(cartItems, 'this is for the cartiesm in line 44') || ( 
                             <div className='product' key={idx * 10003330}>
                                 <img src={urlFor(item[0].image[0])} alt=""  className='cart-product-image'/>
                                 <div className='item-desc'>
@@ -53,13 +53,13 @@ export default function Cart() {
                                     <div className='flex botton'>
                                         <div>
                                             <p className="quantity-desc">
-                                                <span className='minus' onClick={ () => toggleCartItemQuanitity(item._id, 'dec') }>
+                                                <span className='minus' onClick={ () => console.log(item[0]._id, '<--------')|| toggleCartItemQuanitity(item[0]._id, 'dec') }>
                                                     <AiOutlineMinus />
                                                 </span>
                                                 <span className='num' onClick=''>
                                                     {item.quantity}
                                                 </span>
-                                                <span className='plus'onClick={ () => toggleCartItemQuanitity(item._id, 'inc') } >
+                                                <span className='plus'onClick={ () => toggleCartItemQuanitity(item[0]._id, 'inc') } >
                                                     <AiOutlinePlus />
                                                 </span>
                                             </p>

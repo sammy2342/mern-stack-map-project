@@ -38,7 +38,7 @@ export const StateContext = ({ children }) => {
         if(checkProductInCart) { 
             
             const updatedCartItems = cartItems.map((cartProduct) => { 
-                console.log(cartProduct[0]._id, 'this is for the cartProduct id', product[0]._id, 'and this is for the product id')
+                console.log(cartProduct[0]._id, 'this is for the cartProduct id', product._id, 'and this is for the product id --------')
                 console.log(cartProduct.quantity, quantity,'this is for the cart product line 37 state context')
                 console.log('stateContext line 38 this is for the product', product)
                 if(cartProduct[0]._id == product[0]._id) return { 
@@ -61,10 +61,11 @@ export const StateContext = ({ children }) => {
     }
     const toggleCartItemQuanitity = (id, value) => {
         
-        foundProduct = cartItems.find((item) => console.log(item, 'this', id, 'and') || item._id === id)
+        foundProduct = cartItems.find((item) => console.log(item, 'this', id, '<--->', value) || item[0]._id === id)
+        console.log(foundProduct, 'foundProduct$$$$$')
         index = cartItems.findIndex((product) => product[0]._id === id)
         // this is so it dosent add another item the same time
-        const newCartItemsInCart = cartItems.filter((item) => item._id !== id)
+        const newCartItemsInCart = cartItems.filter((item) => item[0]._id !== id)
 
         if(value === 'inc') { 
             let newCartItems = [...newCartItemsInCart, { ...foundProduct, quantity: foundProduct.quantity + 1 }]
