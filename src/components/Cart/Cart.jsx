@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 export default function Cart() {
 
     const cartRef = useRef()
-    const { totalPrice, totalQuantites, cartItems, setShowCart, toggleCartItemQuanitity } = useStateContext()
+    const { totalPrice, totalQuantites, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext()
 
     console.log(cartItems, 'this is line 17 cart')
     // useEffect( function() { 
@@ -64,7 +64,7 @@ export default function Cart() {
                                                 </span>
                                             </p>
                                         </div>
-                                        <button type='button' className='remove-item' onClick=''>
+                                        <button type='button' className='remove-item' onClick={() => onRemove(item)}>
                                             <AiOutlineDelete />
                                         </button>
                                     </div>
