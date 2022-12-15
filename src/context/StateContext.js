@@ -32,17 +32,18 @@ export const StateContext = ({ children }) => {
 
     function onAdd(product, quantity) {
         console.log(product[0].name, quantity, 'stateconext page')
-        const checkProductInCart = cartItems.find((item) => console.log(item, 'this is the item') || item._id === product[0]._id)
+        const checkProductInCart = cartItems.find((item) => console.log(item[0]._id, ':dd;d;d;d;') || item[0]._id === product[0]._id)
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product[0].price * quantity)
         setTotalQuantities((prevTotalQuantities) => console.log(prevTotalQuantities, 'this is for the prevoius', quantity)|| prevTotalQuantities + quantity)
+        console.log(checkProductInCart, 'this is really valskdvklsdmvlkasdm')
         if(checkProductInCart) { 
-            
             const updatedCartItems = cartItems.map((cartProduct) => { 
+                console.log(cartProduct, '{{{{{}}}')
                 console.log(cartProduct[0]._id, 'this is for the cartProduct id', product._id, 'and this is for the product id --------')
-                console.log(cartProduct.quantity, quantity,'this is for the cart product line 37 state context')
-                console.log('stateContext line 38 this is for the product', product)
-                if(cartProduct[0]._id == product[0]._id) return { 
+                // console.log(cartProduct.quantity, quantity,'this is for the cart product line 37 state context')
+                // console.log('stateContext line 38 this is for the product', product, cartProduct)
+                if(cartProduct[0]._id === product[0]._id) return { 
                     ...cartProduct, 
                     quantity: cartProduct.quantity + quantity
                 }
@@ -51,7 +52,7 @@ export const StateContext = ({ children }) => {
             setCartItems(updatedCartItems)
         } else {
             product.quantity = quantity
-            console.log(product.quantity, cartItems, product, 'this is in stateconext line 46')
+            console.log(product.quantity, cartItems, product, 'this is in stateconext line 54')
             setCartItems([...cartItems, { ...product }])
         }
         // console.log(product)
