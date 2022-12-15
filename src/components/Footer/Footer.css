@@ -1,4 +1,4 @@
-.footer-banner-container{
+/* .footer-banner-container{
     padding: 100px 40px;
     background-color: #f02d34;
     border-radius: 15px;
@@ -12,8 +12,6 @@
 
 .footer-banner-image{
     position: absolute;
-    /* top: -35%;
-    left: 8%; */
     top: -25%;
     left: 25%;
 }
@@ -55,8 +53,6 @@
   }
   .footer-banner-image{
     position: absolute;
-    /* top: -35%;
-    left: 8%; */
     top: -25%;
     left: 25%;
   }
@@ -96,10 +92,11 @@
     flex-wrap: wrap;
     gap: 20px;
   }
-
+*/
 .footer-image-banner-page { 
     position: relative;
     z-index: 1;
-    bottom: 450px;
-    left: 250px;
-}
+    bottom: 250px;
+    /* left: 20px; */
+    right: 400px;
+} 
