@@ -15,6 +15,7 @@ export const StateContext = ({ children }) => {
     let index
 
     console.log(totalPrice, 'this is for total price')
+    console.log(totalQuantites, 'QUANTITEISS')
     function incQty() { 
         setQty((prevQty) => prevQty + 1)
     }
@@ -34,7 +35,7 @@ export const StateContext = ({ children }) => {
         const checkProductInCart = cartItems.find((item) => console.log(item, 'this is the item') || item._id === product[0]._id)
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product[0].price * quantity)
-        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
+        setTotalQuantities((prevTotalQuantities) => console.log(prevTotalQuantities, 'this is for the prevoius', quantity)|| prevTotalQuantities + quantity)
         if(checkProductInCart) { 
             
             const updatedCartItems = cartItems.map((cartProduct) => { 
@@ -90,7 +91,7 @@ export const StateContext = ({ children }) => {
         const newCartItem = cartItems.filter((item) => item[0]._id !== product[0]._id)
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct[0].price * foundProduct.quantity)
-        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct[0].quantity)
+        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity)
         setCartItems(newCartItem)
     }
 
