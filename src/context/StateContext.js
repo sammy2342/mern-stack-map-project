@@ -14,7 +14,7 @@ export const StateContext = ({ children }) => {
     let foundProduct; 
     let index
 
-    // console.log(totalPrice, 'this is for total price')
+    console.log(totalPrice, 'this is for total price')
     function incQty() { 
         setQty((prevQty) => prevQty + 1)
     }
@@ -63,21 +63,22 @@ export const StateContext = ({ children }) => {
         
         foundProduct = cartItems.find((item) => console.log(item, 'this', id, 'and') || item._id === id)
         index = cartItems.findIndex((product) => product[0]._id === id)
+        // this is so it dosent add another item the same time
         const newCartItemsInCart = cartItems.filter((item) => item._id !== id)
 
         if(value === 'inc') { 
             let newCartItems = [...newCartItemsInCart, { ...foundProduct, quantity: foundProduct.quantity + 1 }]
             setCartItems(newCartItems)
-            setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
+            setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct[0].price)
             setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1)
             console.log(newCartItems, 'this is new cart in items')
             // console.log(item.id, product[0]._id, 'this is forth idessss')
-            console.log(foundProduct.price, 'this is for founDORdocrpice')
+            console.log(foundProduct[0].price, 'this is for founDORdocrpice')
         } else if(value === 'dec') { 
             if(foundProduct.quantity > 1 ) {
                 let newCartItems = [...newCartItemsInCart, { ...foundProduct, quantity: foundProduct.quantity - 1 }]
                 setCartItems(newCartItems)
-                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
+                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct[0].price)
                 setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1)
             }
         }
