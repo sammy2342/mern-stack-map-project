@@ -29,7 +29,7 @@ export default function ProductDetails({productsInList}) {
             }
         }
         getProductDetails()
-    }, [])
+    }, [id])
 
     // console.log(allProduct, 'this is for the all')
 
@@ -44,6 +44,8 @@ export default function ProductDetails({productsInList}) {
     }, [details])
     // console.log(allProduct, 'this is for all product')
     // console.log(details._id, 'this is for the details')
+
+
     return (
 
         <div>

@@ -6,6 +6,7 @@ import { useStateContext } from '../../context/StateContext'
 import { urlFor } from '../../libary/client'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import getStripe from '../../libary/Stripe'
 
 export default function Cart() {
 
@@ -18,6 +19,29 @@ export default function Cart() {
     //     }
     //     getCart()
     // }, [])
+
+    async function handleCheckout() { 
+        const stripe = await getStripe()
+        console.log(stripe, 'Stripe')
+        
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, { 
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify(cartItems)
+        })
+        console.log(response)
+        if(response.statusCode === 500) return 
+
+        const data = await response.json()
+
+        console.log(data, 'this is for dataatat')
+
+        toast.loading('Redireting...')
+
+        stripe.redirectToCheckout({ sessionId: data.id })
+    }
 
 
     return ( 
@@ -79,7 +103,7 @@ export default function Cart() {
                                 <h3>${totalPrice}</h3>
                             </div>
                             <div className='btn-container'>
-                                <button type='button' className='btn' onClick=''>
+                                <button type='button' className='btn' onClick={handleCheckout}>
                                     Checkout
                                 </button>
                             </div>
