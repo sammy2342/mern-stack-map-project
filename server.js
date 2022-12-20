@@ -73,7 +73,7 @@ app.post('/create-checkout-session', async (req, res) => {
       console.log(lineItem)
       return lineItem
     }),
-    success_url: `${YOUR_DOMAIN}?success=true`,
+    success_url: `http://localhost:3000/product/wired-earbuds`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
   });
 
