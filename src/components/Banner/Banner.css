@@ -70,17 +70,29 @@
     visibility: hidden;
 }
 
-.description-banner-item-text { 
+.description-banner-item-text > h5 { 
     position: relative;
-    left: 470px;
-    bottom: 23px;
+    /* left: 800px;
+    bottom: 23px; */
+    right: 70px;
     color: rgba(0, 0, 0, 0.8);
-    margin: 20px;
+    /* margin: 20px; */
+    /* margin-right: 40px; */
+    width: 100%;
+    text-align: right;
+    padding-right: 1000px;
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(42, 47, 103);
 }
 
 .description-banner-item-api { 
     position: relative;
-    left: 400px;
-    bottom: 30px;
+    /* left: 800px;
+    bottom: 30px; */
     color: rgba(115, 112, 112, 0.5);
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    padding-right: 70px;
 }
