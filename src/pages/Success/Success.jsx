@@ -46,7 +46,7 @@ export default function Success() {
             sammy@gmail.com
           </a>
         </p>
-        <Link to="/orders/new">
+        <Link to="/">
           <button type="button" width="300px" className="btn" onClick={handleClick}>
             Continue Shopping
           </button>
