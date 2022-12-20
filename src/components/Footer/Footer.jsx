@@ -37,15 +37,15 @@ export default function Footer() {
                         <h3>{footer[0].largeText2}</h3>
                         <p>{footer[0].saleTime}</p>
                     </div>
-                    <div className="right">
+                    <div className="right footer-container-right-side">
                         <p>{footer[0].smallText}</p>
                         <h3>{footer[0].midText}</h3>
                         <h3>{footer[0].desc}</h3>
                     </div>
-                    <Link herf={`/product/${footer[0].product}`}>
-                        <button type="button">
+                    <Link to={`/product/${footer[0].product}`}>
+                        {/* we can put this back later<button type="button">
                         {footer[0].buttonText}
-                        </button>
+                        </button> */}
                     </Link>
                     <img 
                     src={urlFor(footer[0].image)}

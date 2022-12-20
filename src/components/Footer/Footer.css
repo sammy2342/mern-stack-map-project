@@ -94,9 +94,23 @@
   }
 */
 .footer-image-banner-page { 
-    position: relative;
+    position: absolute;
     z-index: 1;
-    bottom: 250px;
+    bottom: 1px;
     /* left: 20px; */
-    right: 400px;
+    right: 480px;
 } 
+
+.footer-container-right-side { 
+  position: relative;
+  left: 240px;
+  width: 440px;
+  height: 300px;
+  bottom: 80px;
+  float: left;
+}
+
+.left { 
+  position: relative;
+  bottom: 34px;
+}
