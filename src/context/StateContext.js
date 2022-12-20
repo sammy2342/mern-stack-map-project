@@ -111,7 +111,10 @@ return (
                 onAdd, 
                 setShowCart, 
                 toggleCartItemQuanitity,
-                onRemove
+                onRemove,
+                setCartItems, 
+                setTotalPrice,
+                setTotalQuantities
             }}
             >
             {children}
