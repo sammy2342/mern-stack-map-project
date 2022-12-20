@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cors = require('cors')
 
+
 require('dotenv').config()
 require('./config/database')
 
@@ -37,8 +38,8 @@ app.listen(port, function() {
 const YOUR_DOMAIN = 'http://localhost:4242';
 
 app.post('/create-checkout-session', async (req, res) => {
-    console.log(req.body.slug)
-    console.log(req.params)
+    console.log(req.body)
+    // console.log(req.params)
     const session = await stripe.checkout.sessions.create({
         submit_type: 'pay',
         mode: 'payment',
@@ -48,19 +49,35 @@ app.post('/create-checkout-session', async (req, res) => {
             { shipping_rate: 'shr_1MFNhCBIEZeIAiqxJCVy3g4L'},
             { shipping_rate: 'shr_1MFNhyBIEZeIAiqxyD6jPghu'}, 
         ],
-    line_items: [
-      {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: '{{PRICE_ID}}',
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
+    line_items: req.body.cartItems.map((itemVal) => { 
+      const item = itemVal[0]
+      const img = item.image[0].asset._ref
+      const newImage = img.replace('image-', 'https://cdn.sanity.io/images/9cixj163/production/').replace('-webp', '.webp')
+
+
+      const lineItem = { 
+        price_data: { 
+          currency: 'usd', 
+          product_data: { 
+            name: item.name,  
+            images: [newImage]
+          }, 
+          unit_amount: item.price * 100,
+        }, 
+        adjustable_quantity: { 
+          enabled: true, 
+          minimum: 1,
+        }, 
+        quantity: itemVal.quantity
+      }
+      console.log(lineItem)
+      return lineItem
+    }),
     success_url: `${YOUR_DOMAIN}?success=true`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
   });
 
-  res.redirect(303, session.url);
+  res.json({ stripeUrl: session.url });
 });
 
 app.listen(4242, () => console.log('Running on port 4242'));

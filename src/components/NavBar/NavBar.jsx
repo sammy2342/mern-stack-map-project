@@ -25,12 +25,16 @@ export default function NavBar({ user, setUser }) {
             <Link to="/orders/new" className='navbar-links-text'>New Order</Link>
             &nbsp; | &nbsp;
             <div className='navbar-links-text-1'>Welcome, {user.name}</div>
-            &nbsp; | &nbsp;
-            <Link to="" onClick={handleLogOut} className='navbar-links-text'>Log Out</Link>
             <button type='button' className='cart-icon' onClick={() => setShowCart(true)}>
                 <AiOutlineShoppingCart /> 
                 <span className='cart-item-qty'>{totalQuantites}</span>
             </button>
+            &nbsp; | &nbsp;
+            <Link to="" onClick={handleLogOut} className='navbar-links-text'>Log Out</Link>
+            {/* <button type='button' className='cart-icon' onClick={() => setShowCart(true)}>
+                <AiOutlineShoppingCart /> 
+                <span className='cart-item-qty'>{totalQuantites}</span>
+            </button> */}
             {showCart && <Cart />}
         </nav>
     )

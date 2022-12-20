@@ -20,7 +20,8 @@ export default function Cart() {
     //     getCart()
     // }, [])
 
-    async function handleCheckout() { 
+    async function handleCheckout(evt) { 
+        evt.preventDefault()
         const stripe = await getStripe()
         console.log(stripe, 'Stripe')
         
@@ -29,18 +30,19 @@ export default function Cart() {
             headers: {
                 'Content-Type': 'application/json', 
             },
-            body: JSON.stringify(cartItems)
+            body: JSON.stringify({cartItems})
         })
         console.log(response)
-        if(response.statusCode === 500) return 
+        if(!response.ok) return 
 
         const data = await response.json()
+        if(!data.stripeUrl) return
+        window.location.href = data.stripeUrl
+        // console.log(data, 'this is for dataatat')
 
-        console.log(data, 'this is for dataatat')
+        // toast.loading('Redireting...')
 
-        toast.loading('Redireting...')
-
-        stripe.redirectToCheckout({ sessionId: data.id })
+        // stripe.redirectToCheckout({ sessionId: data.id })
     }
 
 
@@ -97,17 +99,18 @@ export default function Cart() {
                         ))}
                     </div>
                     {cartItems.length >= 1 && (
-                        <div className='cart-bottom'>
+                        <form className='cart-bottom' onSubmit={handleCheckout}>
+                            <input type="hidden" value={cartItems} name='items'/>
                             <div className='total'>
                                 <h3>Subtotal:</h3>
                                 <h3>${totalPrice}</h3>
                             </div>
                             <div className='btn-container'>
-                                <button type='button' className='btn' onClick={handleCheckout}>
+                                <button type='submit' className='btn'>
                                     Checkout
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     )}
                 </>: null}
             </div>
