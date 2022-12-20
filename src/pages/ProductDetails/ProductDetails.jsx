@@ -15,7 +15,7 @@ export default function ProductDetails({productsInList}) {
     const [details, setDetails] = useState([])
     const [allProduct, setAllProduct] = useState([])
     const [index, setIndex] = useState(0)
-    const { decQty, incQty, qty, onAdd } = useStateContext()
+    const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext()
 
     useEffect( function() { 
         async function getProductDetails() { 
@@ -45,6 +45,10 @@ export default function ProductDetails({productsInList}) {
     // console.log(allProduct, 'this is for all product')
     // console.log(details._id, 'this is for the details')
 
+    const handleBuy = () => {
+        onAdd(details, qty)
+        setShowCart(true)
+    }
 
     return (
 
@@ -105,7 +109,7 @@ export default function ProductDetails({productsInList}) {
                                 </button>
                             </div>
                             <div className='buttons'>
-                                <button type='button' className='buy-now' >
+                                <button type='button' className='buy-now' onClick={handleBuy}>
                                     Buy Now
                                 </button>
                             </div>
