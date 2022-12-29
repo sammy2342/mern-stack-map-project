@@ -19,7 +19,7 @@ export default function NavBar({ user, setUser }) {
     return (
         
         <nav className='nav-bar'>
-            <div className='Logo'><h2>Logo</h2></div>
+            <div className='Logo'><h2>SoundScape</h2></div>
             {/* <Link to="/orders" className='navbar-links-text'>Order History</Link> */}
             &nbsp; | &nbsp;
             <Link to="/" className='navbar-links-text'>Products</Link>
