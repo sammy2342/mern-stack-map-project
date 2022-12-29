@@ -26,7 +26,7 @@ export default class SignUpFormClass extends Component {
         return (
           <div>
             <div className="form-container">
-              <form autoComplete="off" onSubmit={this.handleSubmit}>
+              <form autoComplete="off" onSubmit={this.handleSubmit} className='form-1-1'>
                 <label>Name</label>
                 <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
                 <label>Email</label>

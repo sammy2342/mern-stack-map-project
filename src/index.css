@@ -90,7 +90,7 @@ p.error-message {
   text-align: center;
 }
 
-form {
+.form-1-1 {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
@@ -147,7 +147,7 @@ button:disabled, form:invalid button[type="submit"] {
   background-color: var(--tan-4);
 }
 
-button[type="submit"] {
+/* button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-} 
+}  */
