@@ -73,11 +73,10 @@ app.post('/create-checkout-session', async (req, res) => {
       console.log(lineItem)
       return lineItem
     }),
-    success_url: `http://localhost:3000/success`,
+    success_url: `${process.env.REACT_APP_URL}/success`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
   });
 
   res.json({ stripeUrl: session.url });
 });
 
-app.listen(4242, () => console.log('Running on port 4242'));
